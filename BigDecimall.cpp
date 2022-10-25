@@ -60,14 +60,12 @@ BigDecimall BigDecimall :: operator + (BigDecimall b1){
             for (int z = 0 ; z < temp ; z++){
                 b1.vect.push_back(0);
             }
-
     }
     else if(vect.size() < b1.vect.size()){
             temp = b1.vect.size() - vect.size();
             for (int z = 0 ; z < temp ; z++){
                 vect.push_back(0);
             }
-
     }
     for(int y = 0 ; y <= vect.size();y++){
             num = vect[y] + b1.vect[y] + c;
@@ -94,4 +92,103 @@ BigDecimall BigDecimall :: operator + (BigDecimall b1){
 
 
 
+}
+bool BigDecimall:: operator> (BigDecimall b)
+{
+    if((s == '+')&& (b.s== '+'))
+    {
+        if(vect.size()==b.vect.size())
+        {
+            for(int i=1;i <= vect.size();i++)
+            {
+                if(vect[i]>b.vect[i])
+                {
+                    return true;
+                    break;
+                }
+                else if(vect[i]<b.vect[i])
+                {
+                    return false;
+                    break;
+                }
+            }
+        }
+        else if (vect.size() > b.vect.size())
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    else if((s =='+') && (b.s=='-'))
+    {
+        return true;
+    }
+    else if ((s == '-')&&(b.s == '+'))
+    {
+        return false ;
+    }
+    else if((s == '-')&& (b.s == '-'))
+    {
+            if(vect.size()==b.vect.size())
+        {
+            for(int i=1;i <= vect.size();i++)
+            {
+                if(vect[i]<b.vect[i])
+                {
+                    return true;
+                    break;
+                }
+                else if(vect[i]>b.vect[i])
+                {
+                    return false;
+                    break;
+                }
+            }
+        }
+        else if (vect.size() < b.vect.size())
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+}
+
+bool BigDecimall:: operator == (BigDecimall b)
+{
+    if ((s == b.s) && (vect.size() == b.vect.size()))
+    {
+        for(int i=1;i<=vect.size();i++)
+        {
+            if(vect[i]!=b.vect[i])
+            {
+                return false;
+                break;
+            }
+            else
+            {
+                return true;
+            }
+        }
+    }
+    else
+    {
+        return false;
+    }
+}
+
+
+ostream& operator << (ostream& out, BigDecimall b)
+{
+    for(int i=0;i<b.vect.size();i++)
+    {
+        out<<b.vect[i];
+    }
+    return out;
 }

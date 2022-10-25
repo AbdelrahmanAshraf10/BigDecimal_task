@@ -12,6 +12,9 @@ class BigDecimall
         vector<int> vect;
         char s;
         BigDecimall operator + (BigDecimall);
+        bool operator> (BigDecimall b);
+        bool operator==(BigDecimall b);
+        friend ostream& operator << (ostream& out, BigDecimall b);
 
 
     protected:

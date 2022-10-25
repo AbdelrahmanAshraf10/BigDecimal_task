@@ -10,9 +10,7 @@ int main()
     BigDecimall a2 ("113456789011345678901134567890");
     BigDecimall a3;
     a3 = a2 +a1;
-    for (int x = 0 ; x < a3.vect.size(); x++){
-        cout << a3.vect[x];
-    }
+    cout<<a3;
 }
 
 
